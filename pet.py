@@ -36,7 +36,7 @@ sophie.deposit({"amount": 67})
 print(sophie.__dict__) """
 
 
-class Hero:
+""" class Hero:
     def __init__(self, name, money, inventory):
         self.name = name
         self.money = money
@@ -47,17 +47,18 @@ class Hero:
 
 Sophie = Hero("Sophie", 676767, ["Doomscroll"])
 Sophie.buy({"title": "Brainrot", "atk": 41})
-print(Sophie.__dict__)
+print(Sophie.__dict__) """
 
 class Pet:
     def __init__(self, name, happiness):
         self.name = name
         self.__happiness = happiness
-    def play(self, time):
-        self.happiness += time
+    def play(self, play):
+        self.__happiness += int(play)
     def show_status(self):
         print(f"{self.name} is {self.__happiness}")
 
-Dog = Pet("Bark", 1)
-Dog.play(int(time = 9))
+Dog = Pet("Bark Bark", 1)
+Dog.play(play = 9)
 print(Dog.__dict__)
+
