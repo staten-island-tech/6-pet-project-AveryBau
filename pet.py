@@ -62,3 +62,20 @@ Dog = Pet("Bark Bark", 1)
 Dog.play(play = 9)
 print(Dog.__dict__)
 
+class Hero:
+    def __init__(self, name, money, inventory):
+        self.name = name
+        self.__money = money
+        self.__inventory = inventory
+    def spend(self, item):
+        self.__inventory.append(item)
+    def egg (self, spend):
+        self.__money -= int(spend)
+    def yeah(self):
+        print(f"{self.name} has {self.__money}")
+Sabrina = Hero("Sabrina", 1234, ["Yuri"])
+Sabrina.egg(spend = 67)
+Sabrina.spend("MORE YURI")
+print(Sabrina.__dict__)
+
+
