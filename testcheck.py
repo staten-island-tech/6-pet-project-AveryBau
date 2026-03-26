@@ -1,17 +1,20 @@
 def tree(number, height):
     tall = 1
     short = 1
-    sstreak = []
-    tstreak = []
-    for i in range(number):
+    sstreak = 0
+    tstreak = 0
+    for i in range(len(height)-1):
         if height[i + 1] > height[i]:
             tall += 1
-            tstreak.append(tall)
-            tall == 1
-        elif height[i + 1] < height[i]:
+            short = 1
+        if tstreak < tall:
+            tstreak = tall
+        if height[i + 1] < height[i]:
             short += 1
-            sstreak.append(short)
-            short == 1
-    print(max(tstreak))
-    print(max(sstreak))
+            tall = 1
+        if sstreak < short:
+            sstreak = short
+    print(tstreak)
+    print(sstreak)
 tree(4, [1, 3, 4, 2])
+tree(10, [2, 1, 4, 6, 8, 2, 9, 5, 2, 3])
