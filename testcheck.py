@@ -18,3 +18,4 @@ def tree(number, height):
     print(sstreak)
 tree(4, [1, 3, 4, 2])
 tree(10, [2, 1, 4, 6, 8, 2, 9, 5, 2, 3])
+tree(5, [1, 2, 3, 4, 5, 3])
