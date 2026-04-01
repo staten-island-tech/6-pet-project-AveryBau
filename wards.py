@@ -7,18 +7,15 @@ wards = {
 
 def person(ward):
     staff = {}
-    for department["name"] in ward:
-         if department in staff:
-              staff[department["name"]]
-              continue
-         else:
-              staff[department["name"]] = {
-                  
-              }
-              
-    for department, docs in wards.items():
-        print(department, docs)
-
+    for dept, docs in ward.items():    # for the items in the wards
+       depts = []
+       depts.append(dept)             
+       for doc in docs:                # in all the doctors
+           if doc not in staff:        # if the doctors are not in the dictionary
+               staff[doc] = [dept]     # format of the dictionary, the doctor = [list of jobs]
+           else:   # when it is in the dictionary
+               staff[doc].append(dept)  # add all the departments
+    print(staff)
 person(wards)
 
 
