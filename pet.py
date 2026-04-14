@@ -58,11 +58,11 @@ class Pet:
     def show_status(self):
         print(f"{self.name} is {self.__happiness}")
 
-Doggy = Pet("Bark Bark", 10)
+Doggy = Pet("Barky Bark Bark", 10)
 Doggy.play(play = 100)
 print(Doggy.__dict__)
 
-""" class Hero:
+class Hero:
     def __init__(self, name, money, inventory):
         self.name = name
         self.__money = money
@@ -128,4 +128,4 @@ admin = Administrator("Ms. Johnson", "johnson@example.com", "Principal")
 print(admin.manage_system())
 
 my_teacher = Teacher("Mr. Smith", "smith@example.com", "Mathematics")
-print(my_teacher.display_info()) """
+print(my_teacher.display_info())

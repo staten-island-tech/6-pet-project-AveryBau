@@ -26,5 +26,8 @@ def receipt(orders):
         price = value["price"] * value ["quantity"]
         print(sushi, value["quantity"], price)
 
-        
+
 receipt(sushi_orders)
+
+
+
