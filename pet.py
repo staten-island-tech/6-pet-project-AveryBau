@@ -129,3 +129,20 @@ print(admin.manage_system())
 
 my_teacher = Teacher("Mr. Smith", "smith@example.com", "Mathematics")
 print(my_teacher.display_info())
+
+
+
+
+
+class Pet:
+    def __init__(self, name, happiness):
+        self.name = name
+        self.__happiness = happiness
+    def play(self, play):
+        self.__happiness += int(play)
+    def show_status(self):
+        print(f"{self.name} is {self.__happiness}")
+
+Sabibi = Pet("Sabibi", 10)
+Sabibi.play(play = 6.7)
+print(Sabibi.__dict__)
