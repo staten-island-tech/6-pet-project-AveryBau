@@ -163,25 +163,6 @@ class Pet:
             print(f"{self.name} is so happy!")
         if self.clean >= 85:
             print(f"{self.name} is nice and clean!")
-    
-    def randomPetaction(self):
-        x = random.randint(1, 20)
-        if x <= 4 and x >= 1: 
-         self.happiness += 10
-         return(f"{self.name} started to purr softly.")
-        if x <= 8 and x >= 5 : 
-            return(f"Hey! {self.name} climbed into your lap.")  
-        if x <= 6 and x >= 9: 
-            self.clean += 5 
-            return(f"Awwww, {self.name} is grooming itself")
-        if x <= 15 and x >= 13 : 
-            self.clean -= 25
-            return(f"ughh.. Time to clean the litterbox.....")
-               
-        if x <= 19 and x >= 16 : 
-            return(f"{self.name} is so energetic!")
-        if x == 20 : 
-            return(f"{self.name} has been very, very bad.")
          
 class player:
     def __init__(self, name, soap = 5, Cannedfood = 10 , money = 50,):
@@ -209,7 +190,6 @@ Userinput = input("What is the cat's name? ")
 petOne = Pet(Userinput)
 userEnergy = 3
 money = 50
-#user could change this later
 Userinput2 = True
  
 print(f"Congrats on your first pet! Welcome home, {petOne.name}!")
@@ -323,7 +303,7 @@ while petOne.living == True:
     petOne.aging()
 print(f"Uh oh.... {petOne.name} has died.....")
 print(f"Oops...")
-Userinput = input(f"what...would you like....to do..? You can: bury {petOne.name} or.... cook {petOne.name}...")
+Userinput = input(f"what...would you like....to do..?")
 if "bury" in Userinput:
     print("You walk into the backyard.")
     print("A shovel has been discarded by the bushes.")
@@ -339,4 +319,5 @@ elif "cook" in Userinput:
     print(f"{USER.Username} is full...")
     print("You left no crumbs.") 
 else: 
-    print("what have you done :(  ")
+    print(f"You feel very guilty for killing {petOne.name}")
+    print("what have you done? :(")
