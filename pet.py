@@ -244,15 +244,15 @@ while petOne.living == True:
         print(f"You have {userEnergy} energy left.")
     if petOne.clean <= 0 :
             petOne.living = False
-            print(f"{petOne}'s hygiene was neglected")
+            print(f"{petOne.name}'s hygiene was neglected")
             break
     if petOne.hunger <= 0 :
             petOne.living = False
-            print(f"{petOne} starved")
+            print(f"{petOne.name} starved")
             break
     if petOne.happiness <= 0 :
             petOne.living = False
-            print(f"{petOne} is too unhappy")
+            print(f"{petOne.name} is too unhappy")
             break
    
     print(f"You're out of energy! Time for {petOne.name} to go to bed!")
