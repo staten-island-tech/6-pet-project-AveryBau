@@ -170,48 +170,37 @@ Userinput = input("What's your name? ")
 USER = player(Userinput)
 Userinput = input("What is the cat's name? ")
 petOne = Pet(Userinput)
-userEnergy = 3
 Userinput2 = True
  
 print(f"Congrats on your first pet! Welcome home, {petOne.name}!")
  
 while petOne.living == True:
     print(f"Rise and shine! Day: {petOne.age}")
-    while userEnergy != 0:
-        petOne.warnings()
-        print(" ")
-        Userinput = input(f"What would you like to do? You can clean, feed, play with, or watch {petOne.name}.")
-        Userinput = Userinput.lower()
-        if "clean" in Userinput:
+    petOne.warnings()
+    Userinput = input(f"What would you like to do? You can clean, feed, play with, or watch {petOne.name}.")
+    Userinput = Userinput.lower()
+    if "clean" in Userinput:
             petOne.clean = 100
             petOne.happiness -= 40
-            userEnergy -= 1
             petOne.statSelf()
-        elif "play" in Userinput:
+    elif "play" in Userinput:
             petOne.happiness += 50
             petOne.hunger -= 25
             petOne.clean -= 50
-            if petOne.happiness > 100:
-                petOne.happiness = 100
-            userEnergy -= 1
             petOne.statSelf()
-        elif "feed" in Userinput:
+    elif "feed" in Userinput:
             petOne.hunger = 100
             petOne.happiness += 50
             if petOne.happiness > 100:
                 petOne.happiness = 100
-            userEnergy -= 1
             petOne.statSelf()
-        elif "watch" in Userinput:
-            userEnergy -= 1
+    elif "watch" in Userinput:
             petOne.statSelf()
-        else:
+    else:
             print("Sorry, invalid answer. Try again.")
-        if petOne.clean <= 0 or petOne.happiness <= 0 or petOne.hunger <= 0:
+    if petOne.clean <= 0 or petOne.happiness <= 0 or petOne.hunger <= 0:
             petOne.living = False
             break
-        
-        print(f"You have {userEnergy} energy left.")
     if petOne.clean <= 0 :
             petOne.living = False
             print(f"{petOne.name}'s hygiene was neglected")
@@ -225,9 +214,7 @@ while petOne.living == True:
             print(f"{petOne.name} is too unhappy")
             break
    
-    print(f"You're out of energy! Time for {petOne.name} to go to bed!")
-    
- 
+    print(f"Time for {petOne.name} to go to bed!")
     print("It's your free time now!! ")
     Userinput2 = True
     
@@ -245,7 +232,6 @@ while petOne.living == True:
                 print("Sorry, invalid answer. Try again. ")
                 print(" ")
     
-    userEnergy += 3
     petOne.aging()
 print(f"Uh oh.... {petOne.name} has died.....")
 print(f"Oops...")
