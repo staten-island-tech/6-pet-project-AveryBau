@@ -153,35 +153,20 @@ class Pet:
     def warnings(self):
         if self.hunger <= 25:
             print(f"{self.name} is getting hungry")
-        if self.happiness <= 25:
+        elif self.happiness <= 25:
             print(f"{self.name} is unhappy")
-        if self.clean <= 25:
+        elif self.clean <= 25:
             print(f"{self.name} is dirty")
-        if self.hunger >= 85:
+        elif self.hunger >= 85:
             print(f"{self.name} is full!")
-        if self.happiness >= 85:
+        elif self.happiness >= 85:
             print(f"{self.name} is so happy!")
-        if self.clean >= 85:
+        elif self.clean >= 85:
             print(f"{self.name} is nice and clean!")
          
 class player:
-    def __init__(self, name, soap = 5, Cannedfood = 10 , money = 50,):
+    def __init__(self, name):
         self.Username = name
-        self.soap = soap
-        self.Cannedfood = Cannedfood
-        self.money = money 
-    
-    def SHOPPING(self):
-        print("Welcome to the shop! We sell canned food for $1.25 and pet shampoo for $5. ")
-        RESPONSE = input("What do you want to buy? ")
-        if "food" in RESPONSE or "canned" in RESPONSE:
-            print("1 can of cat food purchased! ")
-            self.Cannedfood += 1
-            self.money -= 1.25
-        elif "soap" in RESPONSE or "shampoo" in RESPONSE:
-            print("1 bottle of soap purchased! ")
-            self.soap += 1
-            self.money -= 5
    
 print("Welcome! You are getting a new cat! All you gotta do is keep your cat alive. Good luck!")
 Userinput = input("What's your name? ")
@@ -189,7 +174,6 @@ USER = player(Userinput)
 Userinput = input("What is the cat's name? ")
 petOne = Pet(Userinput)
 userEnergy = 3
-money = 50
 Userinput2 = True
  
 print(f"Congrats on your first pet! Welcome home, {petOne.name}!")
@@ -208,7 +192,6 @@ while petOne.living == True:
             petOne.happiness -= 40
             userEnergy -= 1
             petOne.statDec()
-            USER.soap -= 0.25 
         elif "play" in Userinput:
             print(f"{petOne.name} loves to exercise and had so much fun!")
             print(f"{petOne.name} is a bit dirty.")
@@ -229,7 +212,6 @@ while petOne.living == True:
                 petOne.happiness = 100
             userEnergy -= 1
             petOne.statDec()
-            USER.Cannedfood -= 1 
         elif "watch" in Userinput:
             print(petOne.randomPetaction())
             print(" ")
@@ -262,42 +244,18 @@ while petOne.living == True:
     Userinput2 = True
     
     while Userinput2 == True:
-        print("You can go to the store, check the stats, or sleep." )
+        print(f"You can check {petOne.name}'s stats or sleep." )
         Userinput = input("What would you like to do? ")
-        if "stats" in Userinput or "check" in Userinput:
-            Userinput = input(f"Do you want to check your wallet, {petOne.name}'s stats, or your inventory? ")
-            if "wallet" in Userinput or "money" in Userinput:
-                print(f"You have ${USER.money} in your wallet.")
-                print(" ")
-            elif petOne.name in Userinput  or "pet" in Userinput.lower():
+        if "stats" in Userinput or petOne.name in Userinput.lower():
                 print(f"Hunger: {petOne.hunger}, Cleanliness: {petOne.clean}, Happiness: {petOne.happiness}, Age: {petOne.age} days")
                 print(" ")
-            elif "inventory" in Userinput:
-                print(f"Food Supply: {USER.Cannedfood}, Cat Shampoo: {USER.soap}")
-                print(" ")
-            else:
-                print("Sorry, invalid answer. Try again. ")
-                print(" ")
-             
-        elif "store" in Userinput:
-           Userinput = True
-           while Userinput == True:
-               USER.SHOPPING()
-               Userinput = input("Would you like to buy anything else? (Yes/ No) ")
-               if "yes" in Userinput.lower() or "ok" in Userinput.lower():
-                   Userinput = True
-               elif "no" in Userinput.lower():
-                   Userinput = False
-               else:
-                  print("Sorry, invalid answer. Try again. ") 
-                  print(" ")
         elif "sleep" in Userinput: 
             print(f"Good night, {USER.Username}.... ")
             print(" ")
             Userinput2 = False
         else:
-            print("Sorry, invalid answer. Try again. ")
-            print(" ")
+                print("Sorry, invalid answer. Try again. ")
+                print(" ")
     
     userEnergy += 3
     petOne.aging()
@@ -305,11 +263,7 @@ print(f"Uh oh.... {petOne.name} has died.....")
 print(f"Oops...")
 Userinput = input(f"what...would you like....to do..?")
 if "bury" in Userinput:
-    print("You walk into the backyard.")
-    print("A shovel has been discarded by the bushes.")
-    print(f"{petOne.name} is getting heavy in your arms.")
-    print("There is dirt in your fingernails.")
-    print("There is a pile of dirt.")
+    print(f"You walk into the backyard. A shovel has been discarded by the bushes. {petOne.name} is getting heavy in your arms. There is dirt in your fingernails. There is a pile of dirt.")
     print(f"You buried {petOne.name}.")
 elif "cook" in Userinput:
     print("sizzle...")
