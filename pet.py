@@ -141,13 +141,10 @@ class Pet:
         self.happiness = happiness
         self.age = age 
         self.living = living
-    
-    def statDec(self):
+    def statSelf(self):
         self.clean -= 10
         self.happiness -= 15
         self.hunger -= 20
-        
-        
     def aging(self):
         self.age += 1 
     def warnings(self):
@@ -183,42 +180,33 @@ while petOne.living == True:
     while userEnergy != 0:
         petOne.warnings()
         print(" ")
-        Userinput = input(f"What would you like to do? You can clean {petOne.name}, feed {petOne.name}, play with {petOne.name}, or watch {petOne.name}. ")
+        Userinput = input(f"What would you like to do? You can clean, feed, play with, or watch {petOne.name}.")
         Userinput = Userinput.lower()
         if "clean" in Userinput:
-            print(f"Poor {petOne.name} ... it hates baths :') ")
-            print(" ")
             petOne.clean = 100
             petOne.happiness -= 40
             userEnergy -= 1
-            petOne.statDec()
+            petOne.statSelf()
         elif "play" in Userinput:
-            print(f"{petOne.name} loves to exercise and had so much fun!")
-            print(f"{petOne.name} is a bit dirty.")
-            print(" ")
             petOne.happiness += 50
             petOne.hunger -= 25
             petOne.clean -= 50
             if petOne.happiness > 100:
                 petOne.happiness = 100
             userEnergy -= 1
-            petOne.statDec()
+            petOne.statSelf()
         elif "feed" in Userinput:
-            print(f"Yum yum! {petOne.name} is full.")
-            print(" ")
             petOne.hunger = 100
             petOne.happiness += 50
             if petOne.happiness > 100:
                 petOne.happiness = 100
             userEnergy -= 1
-            petOne.statDec()
+            petOne.statSelf()
         elif "watch" in Userinput:
-            print(petOne.randomPetaction())
-            print(" ")
             userEnergy -= 1
-            petOne.statDec()
+            petOne.statSelf()
         else:
-            print("Sorry, invalid answer. Try again. ")
+            print("Sorry, invalid answer. Try again.")
         if petOne.clean <= 0 or petOne.happiness <= 0 or petOne.hunger <= 0:
             petOne.living = False
             break
@@ -263,15 +251,8 @@ print(f"Uh oh.... {petOne.name} has died.....")
 print(f"Oops...")
 Userinput = input(f"what...would you like....to do..?")
 if "bury" in Userinput:
-    print(f"You walk into the backyard. A shovel has been discarded by the bushes. {petOne.name} is getting heavy in your arms. There is dirt in your fingernails. There is a pile of dirt.")
+    print(f"You walk into the backyard. {petOne.name} is getting heavy in your arms. A shovel lays on the ground.")
     print(f"You buried {petOne.name}.")
-elif "cook" in Userinput:
-    print("sizzle...")
-    print(f"{USER.Username} is getting hungry")
-    print("Munch...")
-    print("Munch...")
-    print(f"{USER.Username} is full...")
-    print("You left no crumbs.") 
 else: 
     print(f"You feel very guilty for killing {petOne.name}")
     print("what have you done? :(")
