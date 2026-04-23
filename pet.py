@@ -148,16 +148,16 @@ class Pet:
     def aging(self):
         self.age += 1 
     def warnings(self):
-        if self.hunger <= 25:
+        if self.hunger <= 30:
             print(f"{self.name} is really, really hungry")
-        elif self.happiness <= 25:
-            print(f"{self.name} is unhappy and is growing a sense of hatred towards you")
-        elif self.clean <= 25:
-            print(f"{self.name} is very dirty and smelly")
         elif self.hunger >= 85:
             print(f"{self.name} is full!")
+        if self.happiness <= 30:
+            print(f"{self.name} is unhappy and is growing a sense of hatred towards you")
         elif self.happiness >= 85:
             print(f"{self.name} is so happy!")
+        if self.clean <= 30:
+            print(f"{self.name} is very dirty and smelly")
         elif self.clean >= 85:
             print(f"{self.name} is nice and clean!")
     def impact_1(self):
@@ -235,16 +235,17 @@ while cat.living == True:
             print(" ")
             Userinput2 = False
         else:
-                print("Sorry, invalid answer. Try again. ")
-                print(" ")
+            print("Sorry, invalid answer. Try again. ")
+            print(" ")
     
     cat.aging()
-print(f"Uh oh.... {cat.name} has died.....")
+print(f"Uh oh... {cat.name} has died...")
 print(f"Oops...")
-Userinput = input(f"what...would you like....to do..?")
+Userinput = input(f"what...would you like...to do..?")
 if "bury" in Userinput:
     print(f"You walk into the backyard. {cat.name} is getting heavy in your arms. A shovel lays on the ground.")
     print(f"You buried {cat.name}.")
 else: 
     print(f"You feel very guilty for killing {cat.name}")
-    print("what have you done? :(")
+    print("You're traumatized and will never get a pet ever again")
+    print("What have you done?")
