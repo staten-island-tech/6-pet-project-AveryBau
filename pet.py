@@ -149,17 +149,23 @@ class Pet:
         self.age += 1 
     def warnings(self):
         if self.hunger <= 25:
-            print(f"{self.name} is getting hungry")
+            print(f"{self.name} is really, really hungry")
         elif self.happiness <= 25:
-            print(f"{self.name} is unhappy")
+            print(f"{self.name} is unhappy and is growing a sense of hatred towards you")
         elif self.clean <= 25:
-            print(f"{self.name} is dirty")
+            print(f"{self.name} is very dirty and smelly")
         elif self.hunger >= 85:
             print(f"{self.name} is full!")
         elif self.happiness >= 85:
             print(f"{self.name} is so happy!")
         elif self.clean >= 85:
             print(f"{self.name} is nice and clean!")
+    def impact_1(self):
+        cat.clean = 100
+    def impact_2(self):
+         cat.happiness += 50
+    def impact_3(self):
+         cat.hunger = 100
          
 class player:
     def __init__(self, name):
@@ -169,60 +175,60 @@ print("Welcome! You are getting a new cat! All you gotta do is keep your cat ali
 Userinput = input("What's your name? ")
 USER = player(Userinput)
 Userinput = input("What is the cat's name? ")
-petOne = Pet(Userinput)
+cat = Pet(Userinput)
 Userinput2 = True
  
-print(f"Congrats on your first pet! Welcome home, {petOne.name}!")
+print(f"Congrats on your first pet! Welcome home, {cat.name}!")
  
-while petOne.living == True:
-    print(f"Rise and shine! Day: {petOne.age}")
-    petOne.warnings()
-    Userinput = input(f"What would you like to do? You can clean, feed, play with, or watch {petOne.name}.")
+while cat.living == True:
+    print(f"Rise and shine! Day: {cat.age}")
+    cat.warnings()
+    Userinput = input(f"What would you like to do? You can clean, feed, play with, or watch {cat.name}.")
     Userinput = Userinput.lower()
     if "clean" in Userinput:
-            petOne.clean = 100
-            petOne.happiness -= 40
-            petOne.statSelf()
+            cat.impact_1
+            cat.happiness -= 40
+            cat.statSelf()
     elif "play" in Userinput:
-            petOne.happiness += 50
-            petOne.hunger -= 25
-            petOne.clean -= 50
-            petOne.statSelf()
+            cat.impact_2
+            cat.hunger -= 25
+            cat.clean -= 50
+            cat.statSelf()
     elif "feed" in Userinput:
-            petOne.hunger = 100
-            petOne.happiness += 50
-            if petOne.happiness > 100:
-                petOne.happiness = 100
-            petOne.statSelf()
+            cat.impact_3
+            cat.happiness += 50
+            if cat.happiness > 100:
+                cat.happiness = 100
+            cat.statSelf()
     elif "watch" in Userinput:
-            petOne.statSelf()
+            cat.statSelf()
     else:
             print("Sorry, invalid answer. Try again.")
-    if petOne.clean <= 0 or petOne.happiness <= 0 or petOne.hunger <= 0:
-            petOne.living = False
+    if cat.clean <= 0 or cat.happiness <= 0 or cat.hunger <= 0:
+            cat.living = False
             break
-    if petOne.clean <= 0 :
-            petOne.living = False
-            print(f"{petOne.name}'s hygiene was neglected")
+    elif cat.clean <= 0 :
+            cat.living = False
+            print(f"{cat.name}'s hygiene was neglected")
             break
-    if petOne.hunger <= 0 :
-            petOne.living = False
-            print(f"{petOne.name} starved")
+    elif cat.hunger <= 0 :
+            cat.living = False
+            print(f"{cat.name} starved")
             break
-    if petOne.happiness <= 0 :
-            petOne.living = False
-            print(f"{petOne.name} is too unhappy")
+    elif cat.happiness <= 0 :
+            cat.living = False
+            print(f"{cat.name} is too unhappy")
             break
    
-    print(f"Time for {petOne.name} to go to bed!")
+    print(f"Time for {cat.name} to go to bed!")
     print("It's your free time now!! ")
     Userinput2 = True
     
     while Userinput2 == True:
-        print(f"You can check {petOne.name}'s stats or sleep." )
+        print(f"You can check {cat.name}'s stats or sleep." )
         Userinput = input("What would you like to do? ")
-        if "stats" in Userinput or petOne.name in Userinput.lower():
-                print(f"Hunger: {petOne.hunger}, Cleanliness: {petOne.clean}, Happiness: {petOne.happiness}, Age: {petOne.age} days")
+        if "stats" in Userinput or cat.name in Userinput.lower():
+                print(f"Hunger: {cat.hunger}, Cleanliness: {cat.clean}, Happiness: {cat.happiness}, Age: {cat.age} days")
                 print(" ")
         elif "sleep" in Userinput: 
             print(f"Good night, {USER.Username}.... ")
@@ -232,13 +238,13 @@ while petOne.living == True:
                 print("Sorry, invalid answer. Try again. ")
                 print(" ")
     
-    petOne.aging()
-print(f"Uh oh.... {petOne.name} has died.....")
+    cat.aging()
+print(f"Uh oh.... {cat.name} has died.....")
 print(f"Oops...")
 Userinput = input(f"what...would you like....to do..?")
 if "bury" in Userinput:
-    print(f"You walk into the backyard. {petOne.name} is getting heavy in your arms. A shovel lays on the ground.")
-    print(f"You buried {petOne.name}.")
+    print(f"You walk into the backyard. {cat.name} is getting heavy in your arms. A shovel lays on the ground.")
+    print(f"You buried {cat.name}.")
 else: 
-    print(f"You feel very guilty for killing {petOne.name}")
+    print(f"You feel very guilty for killing {cat.name}")
     print("what have you done? :(")
