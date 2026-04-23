@@ -204,6 +204,7 @@ while cat.living == True:
             cat.statSelf()
     else:
             print("Sorry, invalid answer. Try again.")
+            
     if cat.clean <= 0 or cat.happiness <= 0 or cat.hunger <= 0:
             cat.living = False
             break
